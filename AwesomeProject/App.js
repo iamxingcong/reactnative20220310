@@ -21,10 +21,18 @@ import {
 
 
 const styles = StyleSheet.create({
-
+  container: {
+    flex: 1,
+   
+  },
+  scrollView: {
+    backgroundColor: 'white',
+    marginHorizontal: 20,
+  },
   bigBlue: {
     fontSize: 25,
-    
+    lineHeight: 25,
+    marginBottom: 15,
   }
 })
 
@@ -64,9 +72,8 @@ constructor(props) {
  render(){
 
   return (
-    <SafeAreaView>
-      
-      <ScrollView>
+    <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.scrollView}>
        
         
 
