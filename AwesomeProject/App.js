@@ -14,6 +14,7 @@ import {
   StatusBar,
   StyleSheet,
   Text,
+  Image,
   useColorScheme,
   View,
 } from 'react-native';
@@ -65,17 +66,29 @@ constructor(props) {
   return (
     <SafeAreaView>
       
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-      >
+      <ScrollView>
        
-       
-          <View className="total" style={[styles.bigBlue]}>
+        
 
           {this.state.items && this.state.items.length >= 1 ?
 
             this.state.items.map(function(item){
-              return <Text  style={[styles.bigBlue]} key={item.id}> { item.email } </Text>
+              return (
+                <View key={item.id}>
+                <Text  style={[styles.bigBlue]} > { item.email } </Text>
+                <Image  
+                  source={{uri: `${ item.avatar } `}} 
+                  style={{
+                    width: 400, 
+                    height: 400,
+                    resizeMode: 'contain'
+
+                  }} 
+
+                />
+
+                </View>
+                )
             })
 
            : 
@@ -84,7 +97,7 @@ constructor(props) {
 
          }
            
-          </View>
+        
        
       </ScrollView>
     </SafeAreaView>
