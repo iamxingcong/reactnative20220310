@@ -22,7 +22,8 @@ import {
 const styles = StyleSheet.create({
 
   bigBlue: {
-    fontSize: 80,
+    fontSize: 25,
+    
   }
 })
 
@@ -48,7 +49,7 @@ constructor(props) {
         (result) => {
           this.setState({
             
-            items: result
+            items: result.data
           });
         },
         
@@ -68,12 +69,23 @@ constructor(props) {
         contentInsetAdjustmentBehavior="automatic"
       >
        
-        <View id="get-request-async-await">
-          <Text className="total" style={[styles.bigBlue]}>
-            {JSON.stringify(this.state.items)}
-           ssfdsf sf sf k;llk;\
-          </Text>
-        </View>
+       
+          <View className="total" style={[styles.bigBlue]}>
+
+          {this.state.items && this.state.items.length >= 1 ?
+
+            this.state.items.map(function(item){
+              return <Text  style={[styles.bigBlue]} key={item.id}> { item.email } </Text>
+            })
+
+           : 
+
+           <Text> "==" </Text> 
+
+         }
+           
+          </View>
+       
       </ScrollView>
     </SafeAreaView>
     );
